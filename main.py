@@ -82,7 +82,7 @@ for epoch_index in range(cfg.epoch):
 
             pred = net(img)
 
-            loss = net.multi_label_sigmoid_cross_entropy_loss(pred, label, size_average=False)
+            loss = net.multi_label_sigmoid_cross_entropy_loss(pred, label, size_average=True)
             loss_total += loss
 
             new_statistics_list = net.statistics(pred.data, label.data, cfg.thresh)

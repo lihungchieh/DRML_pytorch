@@ -1,0 +1,14 @@
+# python
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+__pychache__
+
+# configurations
+.yml
+
+# pycharm staff 
+.idea

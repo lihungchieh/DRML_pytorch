@@ -85,7 +85,7 @@ class Network(nn.Module):
         #     # print((1 - pred[y < 0]).min())
         #     pdb.set_trace()
 
-        loss = -(pos_part + neg_part)
+        loss = -(2 * pos_part + neg_part)
 
         if size_average:
             loss /= batch_size
@@ -125,7 +125,9 @@ class Network(nn.Module):
                 else:
                     assert False
             statistics_list.append({'TP': TP, 'FP': FP, 'TN': TN, 'FN': FN})
+        print(statistics_list)
         return statistics_list
+
 
     @staticmethod
     def calc_f1_score(statistics_list):

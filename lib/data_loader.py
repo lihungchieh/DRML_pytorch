@@ -64,13 +64,13 @@ class DataSet(object):
         self.test_label_tensor_list = []
 
         self.train_transforms = transforms.Compose([
-            transforms.Resize(size=(self.cfg.height, self.cfg.width)),
+            transforms.Scale(size=(self.cfg.height, self.cfg.width)),
             transforms.CenterCrop(size=(self.cfg.crop_height, self.cfg.crop_width)),
             transforms.ToTensor(),
         ])
 
         self.test_transforms = transforms.Compose([
-            transforms.Resize(size=(self.cfg.crop_height, self.cfg.crop_width)),
+            transforms.Scale(size=(self.cfg.crop_height, self.cfg.crop_width)),
             transforms.ToTensor(),
         ])
 
@@ -126,6 +126,8 @@ class DataSet(object):
 
 if __name__ == '__main__':
     import config
+    print(torch.__version__)
+
     obj = DataSet(config)
 
     for img, label in obj.train_loader:
