@@ -6,6 +6,7 @@
 dist
 build
 __pychache__
+.log
 
 # configurations
 .yml
