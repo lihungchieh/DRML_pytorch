@@ -5,6 +5,9 @@ from lib.data_loader import DataSet
 import config as cfg
 import logging
 
+import time
+from os.path import join
+
 
 def adjust_learning_rate(optimizer, decay_rate=.9):
     for param_group in optimizer.param_groups:
@@ -72,6 +75,8 @@ for epoch_index in range(cfg.epoch):
         loss_total = 0
         total_statistics_list = []
 
+
+
         for batch_index, (img, label) in enumerate(dataset.test_loader):
             img = Variable(img, volatile=True)
             label = Variable(label, volatile=True)
@@ -82,7 +87,7 @@ for epoch_index in range(cfg.epoch):
 
             pred = net(img)
 
-            loss = net.multi_label_sigmoid_cross_entropy_loss(pred, label, size_average=True)
+            loss = net.multi_label_sigmoid_cross_entropy_loss(pred, label, size_average=False)
             loss_total += loss
 
             new_statistics_list = net.statistics(pred.data, label.data, cfg.thresh)
@@ -95,4 +100,9 @@ for epoch_index in range(cfg.epoch):
         logging.info('[TEST] epoch[%d/%d] loss:%.4f mean_f1_score:%.4f [%s]'
                      % (epoch_index+1, cfg.epoch, loss_mean.data[0], mean_f1_score, ','.join(f1_score_list)))
 
+
+# store model also based on time
+time_stamp = time.strftime('%y_%m_%d')
+model_save_name = 'AU_Detection_DRML_' + time_stamp + '.pkl'
+torch.save(net, join('models', model_save_name))
 
