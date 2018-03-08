@@ -6,7 +6,6 @@
 dist
 build
 __pychache__
-logs
 *.log
 
 # configurations
