@@ -44,9 +44,9 @@ class TestInferenceEmotion(unittest.TestCase):
         #self.assertEqual(len(result[0]), cfg.class_number)
 
     def test_generate_facs_code_from_code_correctly(self):
-        pred = [1, 1, 0, 0, 0, 1 ,1, 1, 0, 1]
+        pred = [1, 1, 0, 0, 0, 1 ,1, 1, 0, 1, 0,1,1,0,1,0]
         img_init_eng = InferenceEngine(model_path=self.model_path, img_path=self.test_img)
-        self.assertEqual(img_init_eng.predict_to_facs(pred), [1,2,9,12,15,20])
+        self.assertEqual(img_init_eng.predict_to_facs(pred), [1,2,7, 9,10,11,14,15,16,24])
 
 
     def test_generate_emotion_correctly(self):
