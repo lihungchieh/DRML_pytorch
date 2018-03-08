@@ -15,5 +15,5 @@ __pychache__
 .idea
 
 # models
-.pkl
+*.pkl
 models
