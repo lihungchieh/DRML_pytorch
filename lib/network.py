@@ -125,9 +125,23 @@ class Network(nn.Module):
                 else:
                     assert False
             statistics_list.append({'TP': TP, 'FP': FP, 'TN': TN, 'FN': FN})
-        print(statistics_list)
+        #print(statistics_list)
         return statistics_list
 
+    @staticmethod
+    def pred_to_labels(pred, thresh):
+        batch_size = pred.size(0)
+        class_nb = pred.size(1)
+
+        pred = pred > thresh
+        pred = pred.long()
+        pred[pred==0] = -1
+
+        result_list = []
+        for j in range(batch_size):
+            result_list.append(pred)
+
+        return result_list
 
     @staticmethod
     def calc_f1_score(statistics_list):

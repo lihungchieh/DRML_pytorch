@@ -39,6 +39,15 @@ class AuEngine(object):
 
         return [emotion ]
 
+    def inference_emotion(self, query_code):
+        emotion_codes = self.inference(query_code)
+        emotion_names = []
+        for emotion_code in emotion_codes:
+            assert (emotion_code in self.emotion_list), 'emotion code {} not in emotion list'.format(emotion_code)
+            emotion_names.append(self.emotion_list[emotion_code])
+
+        return emotion_names
+
 
 
 

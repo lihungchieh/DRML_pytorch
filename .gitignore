@@ -13,3 +13,7 @@ __pychache__
 
 # pycharm staff 
 .idea
+
+# models
+.pkl
+models

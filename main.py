@@ -103,6 +103,6 @@ for epoch_index in range(cfg.epoch):
 
 # store model also based on time
 time_stamp = time.strftime('%y_%m_%d')
-model_save_name = 'AU_Detection_DRML_' + time_stamp + '.pkl'
+model_save_name = 'AU_Detection_DRML_iter_' + str(cfg.epoch) + '_' + time_stamp + '.pkl'
 torch.save(net, join('models', model_save_name))
 
