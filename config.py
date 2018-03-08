@@ -2,7 +2,6 @@ import os
 
 cuda_num = 0
 
-class_number = 10
 height = 180
 width = 180
 crop_height = 170
@@ -18,8 +17,8 @@ test_batch_size = 64
 thresh = 0.8
 test_every_epoch = 1
 
-class_facs_converter = [1, 2, 4, 5, 6, 9, 12, 15, 17, 20]
-
+class_facs_converter = [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 23, 24, 26]
+class_number = len(class_facs_converter)
 
 data_root = '/media/lhj/新加卷/Data/Emotion_ck_pain/Vion_CK+'
 train_info = os.path.join(data_root, 'train_info_aug.txt')
