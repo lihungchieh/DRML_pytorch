@@ -1,7 +1,7 @@
 class AuEngine(object):
     def __init__(self):
-        self.emotion_list = {0:'neutral', 1:'Angry', 2:'Disgust', 3:'Fear', 4:'Happy', 5:'Sadness', 6:'Surprise',
-                             7:'Contempt', }
+        self.emotion_list = {0:'neutral', 1:'Angry', 2:'Contempt', 3:'Disgust', 4:'Fear', 5:'Happy',
+                             6:'Sadness', 7:'Surprise' }
         self.facs_codes = [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 23, 24, 25, 26, 27, 28, 29,
                            31, 34, 38, 39, 43]
 
@@ -9,13 +9,13 @@ class AuEngine(object):
         # https://en.wikipedia.org/wiki/Facial_Action_Coding_System
 
         angry_FACS = [[23, 24], [4, 5, 7, 23]]
+        comtempt_FACS = [[14], [12, 14]]
         disgust_FACS = [[9], [10], [9, 15, 16]]
         fear_FACS = [[1, 2, 4] ]#, [1, 2, 5]]
         happy_FACS = [[12], [6, 12]]
         sadness_FACS = [[1, 4, 15], [1, 4, 11], [11], [6, 15]]
         surprise_FACS = [[1, 2], [5], [1, 2, 5, 26]]
-        comtempt_FACS = [[14], [12, 14]]
-        self.all_FACS = [angry_FACS, disgust_FACS, fear_FACS, happy_FACS, sadness_FACS, surprise_FACS, comtempt_FACS]
+        self.all_FACS = [angry_FACS, comtempt_FACS, disgust_FACS, fear_FACS, happy_FACS, sadness_FACS, surprise_FACS]
 
 
 

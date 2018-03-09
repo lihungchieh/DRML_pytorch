@@ -42,15 +42,15 @@ class TestAuEngine(unittest.TestCase):
 
     def test_AuEngine_infer_method_returns_correct_result(self):
         self.assertEqual(self.auEng.inference([23, 24])[0], 1)
-        self.assertEqual(self.auEng.inference([9])[0], 2)
-        self.assertEqual(self.auEng.inference([10])[0], 2)
-        self.assertEqual(self.auEng.inference([1,2,4])[0], 3)
-        self.assertEqual(self.auEng.inference([12])[0], 4)
-        self.assertEqual(self.auEng.inference([1, 4, 15])[0], 5)
-        self.assertEqual(self.auEng.inference([11])[0], 5)
-        self.assertEqual(self.auEng.inference([6, 15])[0], 5)
-        self.assertEqual(self.auEng.inference([1, 2])[0], 6)
-        self.assertEqual(self.auEng.inference([14])[0], 7)
+        self.assertEqual(self.auEng.inference([9])[0], 3)
+        self.assertEqual(self.auEng.inference([10])[0], 3)
+        self.assertEqual(self.auEng.inference([1,2,4])[0], 4)
+        self.assertEqual(self.auEng.inference([12])[0], 5)
+        self.assertEqual(self.auEng.inference([1, 4, 15])[0], 6)
+        self.assertEqual(self.auEng.inference([11])[0], 6)
+        self.assertEqual(self.auEng.inference([6, 15])[0], 6)
+        self.assertEqual(self.auEng.inference([1, 2])[0], 7)
+        self.assertEqual(self.auEng.inference([14])[0], 2)
         self.assertEqual(self.auEng.inference([13, 18])[0], 0)
 
     def test_AuEngine_return_none_with_duplicate_facs(self):
